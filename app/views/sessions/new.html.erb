@@ -1,0 +1,6 @@
+
+<%= form_for(@user, url: login_path) do |f| %>
+    Email: <%= f.text_field :email_address %>
+    Password: <%= f.password_field :password %>
+    <%= f.submit "Submit" %>
+  <% end %> 
