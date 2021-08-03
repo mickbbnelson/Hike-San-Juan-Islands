@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def new
+    def sign_up
         @user = User.new
     end
 
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = find_by(id: params[:id])
+        @user = User.find_by_id(params[:id])
     end
 
 private
