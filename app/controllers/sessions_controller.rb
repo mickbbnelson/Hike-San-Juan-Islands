@@ -13,7 +13,13 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email_address = auth['info']['email']
+            u.password = SecureRandom.hex(12)
+        end
+        session[:user_id] = @user.id
+        render 'islands/index'
     end
 
     def destroy
