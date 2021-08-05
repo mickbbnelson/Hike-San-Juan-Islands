@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         end
         if @user.valid?
         session[:user_id] = @user.id
-        render 'islands/index'
+        redirect_to islands_path
         else
         redirect_to login_path
         end
