@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#home'
-  resources :islands, only: [:index, :show]
+  #resources :islands, only: [:index, :show]
+  resources :islands do
+    resources :hikes, only: [:show, :index]
+  end
   resources :hikes
   resources :reviews
   #resources :users

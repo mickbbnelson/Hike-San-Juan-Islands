@@ -6,6 +6,6 @@
 
 <ul>
 <% @island.hikes.each do |hike| %>
-<li><%= hike.name %></li>
+<li><%= link_to hike.name, island_hike_path(@island, hike) %></li>
 <% end %>
 </ul>
