@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'welcome#home'
   resources :islands
   resources :hikes
   resources :reviews
