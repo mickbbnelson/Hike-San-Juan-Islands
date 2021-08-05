@@ -1,7 +1,7 @@
-<h1> Islands Page </h1>
+<h1> Islands of the San Juans </h1>
 
 <ul>
 <% @islands.each do |i| %>
-<li><%= i.name %></li>
+<li><%= link_to i.name, i %></li>
 <% end %>
 </ul>
