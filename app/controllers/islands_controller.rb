@@ -5,7 +5,7 @@ class IslandsController < ApplicationController
     end
 
     def show
-        @island = Island.find_by(params[:id])
+        @island = Island.find_by_id(params[:id])
     end
 
 end

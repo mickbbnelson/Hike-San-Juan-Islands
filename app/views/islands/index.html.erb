@@ -2,6 +2,6 @@
 
 <ul>
 <% @islands.each do |i| %>
-<li><%= link_to i.name, i %></li>
+<li><%= link_to i.name, island_path(i.id) %></li>
 <% end %>
 </ul>
