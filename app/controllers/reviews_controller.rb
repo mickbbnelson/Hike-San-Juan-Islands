@@ -1,7 +1,11 @@
 class ReviewsController < ApplicationController
     def index
+        if params[:hike_id] && Hike.find_by_id(params[:hike_id])
         @hike = Hike.find_by_id(params[:hike_id])
         @reviews = @hike.reviews
+        else
+        @reviews = Review.all
+        end
     end
     
     def new
