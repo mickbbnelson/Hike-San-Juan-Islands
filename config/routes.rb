@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :islands do
     resources :hikes, only: [:show, :index]
   end
+  resources :reviews 
   resources :hikes do
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :reviews only: [:show, :edit, :update, :destroy]
   #resources :users
   get 'sign_up', to: 'users#new' 
   post 'sign_up', to: 'users#create'

@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     def index
-
+        @hike = Hike.find_by_id(params[:hike_id])
+        @reviews = @hike.reviews
     end
     
     def new

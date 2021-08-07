@@ -2,4 +2,7 @@
 
 <h4><%= @hike.description %></h4>
 
-<h4> Hiker Reviews </h4>
+
+<h4><%= link_to "Reviews", hike_reviews_path(@hike.id) %></h4>
+
+
