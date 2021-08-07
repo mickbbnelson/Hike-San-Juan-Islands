@@ -5,5 +5,5 @@
 
 <h4><%= @hike.name %> <%= link_to "Reviews", hike_reviews_path(@hike.id) %>.</h4>
 
-<h4>"Write a Review" </h4>
+<h4> Already hiked <%=@hike.name%>? Write a Review <%= link_to "here!", new_hike_review_path(@hike)%></h4>
 
