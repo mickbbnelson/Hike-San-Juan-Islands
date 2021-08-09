@@ -7,3 +7,5 @@
 
 <h4> Already hiked <%=@hike.name%>? Write a Review <%= link_to "here!", new_hike_review_path(@hike)%></h4>
 
+<p>Return to: <%= link_to @hike.island.name, island_path(@hike.island.id) %></p>
+
