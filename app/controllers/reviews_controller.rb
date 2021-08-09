@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     def index
-        if params[:hike_id] && Hike.find_by_id(params[:hike_id])
+        if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
         @hike = Hike.find_by_id(params[:hike_id])
         @reviews = @hike.reviews
         else
@@ -9,11 +9,21 @@ class ReviewsController < ApplicationController
     end
     
     def new
-        @review = Review.new
+        if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
+            @review = Review.new(hike: @hike)
+        else
+            @review = Review.new
+        end
     end
 
     def create
+        @review = Review.new(review_params)
 
+        if @review.save
+            redirect_to hike_reviews_path(:hike_id)
+        else
+            render :new
+        end
     end
 
     def show
@@ -35,6 +45,6 @@ class ReviewsController < ApplicationController
 private
 
     def review_params
-        params.require(:post).permit(:content)
+        params.require(:review).permit(:content, :hike_id, :user_id)
     end
 end
