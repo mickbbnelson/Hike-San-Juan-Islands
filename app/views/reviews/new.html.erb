@@ -1,6 +1,7 @@
-<%= form_for(@review) do |f| %>
-<h3> Write a review </h3>
+
+<%= form_for ([@hike, @review]) do |f| %>
 <%= f.text_area :content %>
-  
+<%= f.hidden_field :hike_id, value: @hike.id %>
 <%= f.submit %>
 <% end %>
+

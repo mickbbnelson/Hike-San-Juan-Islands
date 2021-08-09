@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
   root to: 'welcome#home'
-  #resources :islands, only: [:index, :show]
-  resources :islands do
-    resources :hikes, only: [:show, :index]
-  end
-  resources :reviews 
-  resources :hikes do
-    resources :reviews, only: [:index, :new, :create]
-  end
-  #resources :users
+
   get 'sign_up', to: 'users#new' 
   post 'sign_up', to: 'users#create'
   resources :users, only: [:show]
@@ -17,6 +9,15 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#omniauth'
   delete '/logout', to: 'sessions#destroy'
+  #resources :islands, only: [:index, :show]
+  resources :islands do
+    resources :hikes, only: [:show, :index]
+  end
+  
+  resources :reviews, only: [:index, :new, :create]
+  resources :hikes do
+    resources :reviews, shallow: true
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
