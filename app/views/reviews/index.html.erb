@@ -1,7 +1,10 @@
-<h1> Reviews </h1>
+<h1> <%= @hike.name %> Reviews </h1>
 
 <ul>
 <% @reviews.each do |review| %>
 <li><%= review.content %></li>
 <% end %>
 </ul>
+
+<%= link_to @hike.name, island_hike_path(@island, @hike.id) %>
+

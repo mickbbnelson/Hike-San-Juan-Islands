@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
         if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
         @hike = Hike.find_by_id(params[:hike_id])
         @reviews = @hike.reviews
+        @island = @hike.island
         else
         @reviews = Review.all
         end
