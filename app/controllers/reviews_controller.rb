@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
     def index
         if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
-        @hike = Hike.find_by_id(params[:hike_id])
         @reviews = @hike.reviews
         @island = @hike.island
         else
@@ -19,9 +18,11 @@ class ReviewsController < ApplicationController
 
     def create
         @review = Review.new(review_params)
-
+        if params[:hike_id] 
+            @hike = Hike.find_by_id(params[:hike_id])
+        end
         if @review.save
-            redirect_to hike_reviews_path(:hike_id)
+            redirect_to hike_reviews_path(@hike)
         else
             render :new
         end
