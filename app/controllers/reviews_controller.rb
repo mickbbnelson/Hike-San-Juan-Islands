@@ -36,7 +36,10 @@ class ReviewsController < ApplicationController
     end
 
     def update
-
+        @review = Review.find_by_id(params[:id])
+        wrong_user_redirect
+        @review.update(review_params)
+        redirect_to user_path(@review.user_id)
     end
 
     def destroy
