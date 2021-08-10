@@ -1,4 +1,5 @@
 class IslandsController < ApplicationController
+    before_action :login_redirect
 
     def index
         @islands = Island.all

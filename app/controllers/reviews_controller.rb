@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    before_action :login_redirect
+
     def index
         if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
         @reviews = @hike.reviews
@@ -33,8 +35,7 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        if current_user #figure out the best way to route these
-        @review = Review.find_by_id(params[:id])
+        #figure out the best way to route these
     end
 
     def update

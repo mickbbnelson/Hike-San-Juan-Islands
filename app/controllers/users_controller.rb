@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
     def new
         @user = User.new
     end
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        login_redirect
         @user = User.find_by_id(params[:id])
     end
 

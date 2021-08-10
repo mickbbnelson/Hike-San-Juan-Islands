@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
 private
 
-    def not_logged_in_redirect
-        if !logged_in
+    def login_redirect
+        if !logged_in?
             redirect_to login_path
         end
     end
