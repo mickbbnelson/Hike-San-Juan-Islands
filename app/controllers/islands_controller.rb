@@ -7,6 +7,7 @@ class IslandsController < ApplicationController
 
     def show
         @island = Island.find_by_id(params[:id])
+        @hikes = @island.hikes.alphabetical_order
     end
 
 end
