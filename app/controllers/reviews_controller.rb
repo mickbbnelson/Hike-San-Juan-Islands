@@ -33,7 +33,8 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-
+        if current_user #figure out the best way to route these
+        @review = Review.find_by_id(params[:id])
     end
 
     def update
