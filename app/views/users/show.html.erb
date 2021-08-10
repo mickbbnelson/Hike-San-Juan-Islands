@@ -1,3 +1,10 @@
 <h1> User Info </h1>
 <%= @user.name %> <br>
 <%= @user.email_address %>
+
+<h3>My reviews: </h3>
+<ul>
+<% @user.reviews.each do |r|  %>
+<li><%= r.hike.name %>: <%= r.content %>  <%= link_to "Edit", edit_review_path(r.id) %></li>
+<% end %>
+</ul>

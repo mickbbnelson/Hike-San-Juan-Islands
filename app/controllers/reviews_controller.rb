@@ -30,12 +30,9 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def show
-
-    end
-
     def edit
-        #figure out the best way to route these
+        @review = Review.find_by_id(params[:id])
+        wrong_user_redirect
     end
 
     def update
@@ -50,5 +47,12 @@ private
 
     def review_params
         params.require(:review).permit(:content, :hike_id, :user_id)
+    end
+
+    def wrong_user_redirect
+        if @review.user_id != current_user.id
+            session.clear
+            redirect_to root_path
+        end
     end
 end

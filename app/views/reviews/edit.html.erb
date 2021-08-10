@@ -1,3 +1,5 @@
+<h1> Edit Hike </h1>
+
 <%= form_for ([@hike, @review]) do |f| %>
     <%= f.text_area :content %>
     <%= f.hidden_field :hike_id, value: @review.hike.id %>
