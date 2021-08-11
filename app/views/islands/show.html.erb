@@ -6,7 +6,7 @@
 
 <ul>
 <% @hikes.each do |hike| %>
-<li><%= link_to hike.name, island_hike_path(@island, hike) %></li>
+<li><%= link_to hike.name, island_hike_path(@island, hike) %> - Distance: <%= hike.distance %> - Difficulty: <%= hike.difficulty %></li>
 <% end %>
 </ul>
 

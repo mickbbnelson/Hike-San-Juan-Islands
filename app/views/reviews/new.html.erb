@@ -2,3 +2,5 @@
 
 <%= render partial: "form" %>
 
+<p> Return to: <%= link_to @review.hike.name, island_hike_path(@review.hike.island, @review.hike) %></p>
+
