@@ -31,19 +31,19 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find_by_id(params[:id])
+        assign_review
         wrong_user_redirect
     end
 
     def update
-        @review = Review.find_by_id(params[:id])
+        assign_review
         wrong_user_redirect
         @review.update(review_params)
         redirect_to user_path(@review.user_id)
     end
 
     def destroy
-        @review = Review.find_by_id(params[:id])
+        assign_review
         wrong_user_redirect
         @review.destroy
         redirect_to user_path(@review.user_id)
@@ -60,5 +60,9 @@ private
             session.clear
             redirect_to root_path
         end
+    end
+
+    def assign_review
+        @review = Review.find_by_id(params[:id])
     end
 end
