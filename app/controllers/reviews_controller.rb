@@ -31,9 +31,7 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        assign_review
-        @user = @review.user
-        wrong_user_redirect
+        assign_review_user_and_redirect
     end
 
     def update
@@ -43,9 +41,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        assign_review
-        @user = @review.user
-        wrong_user_redirect
+        assign_review_user_and_redirect
         @review.destroy
         redirect_to user_path(@review.user_id)
     end
@@ -58,5 +54,11 @@ private
 
     def assign_review
         @review = Review.find_by_id(params[:id])
+    end
+
+    def assign_review_user_and_redirect
+        assign_review
+        @user = @review.user
+        wrong_user_redirect
     end
 end
