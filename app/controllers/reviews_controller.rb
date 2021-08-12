@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = current_user.reviews.build(review_params)
         if params[:hike_id] 
             @hike = Hike.find_by_id(params[:hike_id])
         end

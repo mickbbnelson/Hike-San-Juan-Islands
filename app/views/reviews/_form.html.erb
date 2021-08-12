@@ -4,6 +4,5 @@
     <label>Review:</label><br>
     <%= f.text_area :content %><br>
     <%= f.hidden_field :hike_id, value: @review.hike.id %><br>
-    <%= f.hidden_field :user_id, value: current_user.id %><br>
     <%= f.submit %>
     <% end %>
