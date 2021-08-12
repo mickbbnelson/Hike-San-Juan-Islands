@@ -1,9 +1,10 @@
 <h1><%= @hike.name %></h1>
+<h4>Description: <%= @hike.description %></h4>
+<h4>Location: <%= @hike.location %></h4>
+<h4>Distance: <%= @hike.distance %> Miles</h4>
+<h4>Difficulty: <%= @hike.difficulty %></h4>
 
-<h4><%= @hike.description %></h4>
-
-
-<h4><%= @hike.name %> <%= link_to "Reviews", hike_reviews_path(@hike.id) %>.</h4>
+<h4><%= @hike.name %> <%= link_to "Reviews", hike_reviews_path(@hike.id) %></h4>
 
 <h4> Already hiked <%=@hike.name%>? Write a Review <%= link_to "here!", new_hike_review_path(@hike)%></h4>
 
