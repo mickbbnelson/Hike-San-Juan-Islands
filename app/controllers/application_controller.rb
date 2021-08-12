@@ -8,4 +8,11 @@ private
             redirect_to login_path
         end
     end
+
+    def wrong_user_redirect
+        if @user.id != current_user.id
+            session.clear
+            redirect_to root_path
+        end
+    end
 end

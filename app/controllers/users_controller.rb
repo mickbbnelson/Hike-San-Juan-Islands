@@ -25,11 +25,4 @@ private
     def user_params
         params.require(:user).permit(:name, :email_address, :password)
     end
-
-    def wrong_user_redirect
-        if @user.id != current_user.id
-            session.clear
-            redirect_to root_path
-        end
-    end
 end

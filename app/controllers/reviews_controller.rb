@@ -32,18 +32,19 @@ class ReviewsController < ApplicationController
 
     def edit
         assign_review
+        @user = @review.user
         wrong_user_redirect
     end
 
     def update
         assign_review
-        wrong_user_redirect
         @review.update(review_params)
         redirect_to user_path(@review.user_id)
     end
 
     def destroy
         assign_review
+        @user = @review.user
         wrong_user_redirect
         @review.destroy
         redirect_to user_path(@review.user_id)
@@ -53,13 +54,6 @@ private
 
     def review_params
         params.require(:review).permit(:content, :hike_id, :user_id)
-    end
-
-    def wrong_user_redirect
-        if @review.user_id != current_user.id
-            session.clear
-            redirect_to root_path
-        end
     end
 
     def assign_review
