@@ -26,6 +26,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
+gem 'bootstrap', '~> 5.1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

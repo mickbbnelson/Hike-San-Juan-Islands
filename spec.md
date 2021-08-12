@@ -8,7 +8,4 @@ Specs:
  The application is pretty DRY
 
  Limited logic in controllers
-
- Views use helper methods if appropriate
  
- Views use partials if appropriate
