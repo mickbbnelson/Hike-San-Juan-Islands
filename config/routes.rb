@@ -9,12 +9,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#omniauth'
   delete '/logout', to: 'sessions#destroy'
-  #resources :islands, only: [:index, :show]
   resources :islands do
     resources :hikes, only: [:show, :index]
   end
   
-  resources :reviews #, only: [:index, :edit, :update, :destroy]
+  resources :reviews 
   resources :hikes do
     resources :reviews, shallow: true
   end

@@ -3,9 +3,9 @@
 <%= render partial: "layouts/error", locals: {object: @user} %>
 
 <%= form_for(@user, url:sign_up_path) do |f| %>
-    Name: <%= f.text_field :name %><br>
-    Email: <%= f.text_field :email_address %><br>
-    Password: <%= f.password_field :password %><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br>
+    <h5>Name: <%= f.text_field :name %></h5>
+    <h5>Email: <%= f.text_field :email_address %></h5>
+    <h5>Password: <%= f.password_field :password %></h5>
+    <h5>Password Confirmation: <%= f.password_field :password_confirmation %></h5><br>
     <%= f.submit "Submit" %>
   <% end %> 
