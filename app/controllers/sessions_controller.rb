@@ -6,8 +6,10 @@ class SessionsController < ApplicationController
         user = User.find_by_email_address(params[:user][:email_address])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
+            flash[:alert] = "Welcome #{user.name}"
             redirect_to islands_path
         else
+            flash[:alert] = "Incorect email address or password"
             redirect_to login_path
         end
     end
@@ -20,6 +22,7 @@ class SessionsController < ApplicationController
         end
         if @user.valid?
         session[:user_id] = @user.id
+        flash[:alert] = "Welcome #{@user.name}"
         redirect_to islands_path
         else
         redirect_to login_path
@@ -28,6 +31,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:user_id)
+        flash[:alert] = "There are no shortcuts to any place worth going.  Come back soon!"
         redirect_to root_path
     end
 

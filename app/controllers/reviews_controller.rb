@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
             @hike = Hike.find_by_id(params[:hike_id])
         end
         if @review.save
+            flash[:alert] = "Review has been posted"
             redirect_to hike_reviews_path(@hike)
         else
             render :new
@@ -39,6 +40,7 @@ class ReviewsController < ApplicationController
     def update
         assign_review
         @review.update(review_params)
+        flash[:alert] = "Review has been updated"
         redirect_to user_path(@review.user_id)
     end
 
@@ -46,6 +48,7 @@ class ReviewsController < ApplicationController
         assign_review
         @user = @review.user
         @review.destroy
+        flash[:alert] = "Review has been posted"
         redirect_to user_path(@review.user_id)
     end
 
