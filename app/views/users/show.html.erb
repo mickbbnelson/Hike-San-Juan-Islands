@@ -5,6 +5,6 @@
 <h3>My reviews: </h3>
 <ul>
 <% @user.reviews.each do |r|  %>
-<li><%= r.hike.name %> on <%= r.hike.island.name%>: <%= r.content %> <%= link_to "Edit", edit_review_path(r.id) %> <%= link_to("Delete", review_path(r.id), method: :delete) %></li>
+<li><%= r.hike.name %> on <%= r.hike.island.name%>: <%= r.content %> <%= link_to "Edit", edit_review_path(r) %> <%= link_to("Delete", review_path(r), method: :delete) %></li>
 <% end %>
 </ul>

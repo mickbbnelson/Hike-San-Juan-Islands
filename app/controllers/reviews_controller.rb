@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
         assign_review
         @user = @review.user
         @review.destroy
-        flash[:alert] = "Review has been posted"
+        flash[:alert] = "Review has been deleted"
         redirect_to user_path(@review.user_id)
     end
 

@@ -4,9 +4,9 @@
 <h4>Distance: <%= @hike.distance %> Miles</h4>
 <h4>Difficulty: <%= @hike.difficulty %></h4>
 
-<h4><%= @hike.name %> <%= link_to "Reviews", hike_reviews_path(@hike.id) %></h4>
+<h4><%= @hike.name %> <%= link_to "Reviews", hike_reviews_path(@hike) %></h4>
 
 <h4> Already hiked <%=@hike.name%>? Write a Review <%= link_to "here!", new_hike_review_path(@hike)%></h4>
 
-<p>Return to: <%= link_to @hike.island.name, island_path(@hike.island.id) %></p>
+<p>Return to: <%= link_to @island.name, island_path(@island) %></p>
 
