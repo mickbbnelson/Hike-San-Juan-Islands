@@ -71,10 +71,4 @@ private
         @user = @review.user
     end
 
-    def wrong_user_flash_redirect
-        flash[:alert] = "Wrong user!"
-        session.clear
-        redirect_to root_path
-    end
-
 end

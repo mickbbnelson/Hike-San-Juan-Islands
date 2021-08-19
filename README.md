@@ -6,6 +6,14 @@ Once you have cloned the repository, you will need to run "bundle install" to do
 
     bundle install
 
+Run all necessary migrations by typing "rails db:migrate"
+
+    rails db:migrate
+
+Seed the necessary data by running "rails db:seed"
+
+    rails db:seed
+
 Then type "rails s" into the terminal and type the following code into your web browser.
 
     localhost:3000
