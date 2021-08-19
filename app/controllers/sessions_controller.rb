@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
         flash[:alert] = "Welcome #{@user.name}"
         redirect_to islands_path
         else
-        redirect_to login_path
+        redirect_to root_path
         end
     end
 
