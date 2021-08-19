@@ -2,7 +2,7 @@
 
 <ul>
 <% @reviews.each do |review| %>
-<li><%= review.content %> <%= link_to "Edit", edit_review_path(review) if current_user.id == review.user_id %> <%= link_to("Delete", review_path(review), method: :delete) if current_user.id == review.user_id %></li>
+<li><%= review.content %> 
 <% end %>
 </ul>
 

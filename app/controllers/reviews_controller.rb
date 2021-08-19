@@ -38,18 +38,22 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        assign_review
+        assign_review_and_user
         @review.update(review_params)
         flash[:alert] = "Review has been updated"
         redirect_to user_path(@review.user_id)
     end
 
     def destroy
-        assign_review
-        @user = @review.user
+        assign_review_and_user
+        if @user != current_user
+            session.clear
+            redirect_to root_path
+        else
         @review.destroy
         flash[:alert] = "Review has been deleted"
         redirect_to user_path(@review.user_id)
+        end
     end
 
 private
@@ -61,4 +65,16 @@ private
     def assign_review
         @review = Review.find_by_id(params[:id])
     end
+    
+    def assign_review_and_user
+        assign_review
+        @user = @review.user
+    end
+
+    def wrong_user_flash_redirect
+        flash[:alert] = "Wrong user!"
+        session.clear
+        redirect_to root_path
+    end
+
 end
