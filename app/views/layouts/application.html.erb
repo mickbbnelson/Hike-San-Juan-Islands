@@ -17,7 +17,7 @@
   <ul>
   <% if logged_in? %>
   <li><%= link_to('Log out', '/logout', method: :delete) %></li>
-  <li><%= link_to 'Islands', '/islands', class: 'link-color' %></li>
+  <li><%= link_to 'Islands', '/islands' %></li>
   <li><%= link_to "Profile", user_path(current_user.id) %></li>
   <% else %>
   <li><%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %></li>

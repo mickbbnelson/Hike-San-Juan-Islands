@@ -1,5 +1,7 @@
 <h1> Create Review </h1>
 
+<%= render partial: "layouts/error", locals: {object: @review} %>
+
 <%= render partial: "form", locals: {hike: @hike, review: @review}%>
 
 <p> Return to: <%= link_to @hike.name, island_hike_path(@hike.island, @hike) %></p>

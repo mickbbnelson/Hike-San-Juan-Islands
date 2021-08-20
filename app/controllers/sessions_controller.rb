@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:user_id)
-        flash[:alert] = "There are no shortcuts to any place worth going.  Come back soon!"
+        flash[:alert] = "There are no shortcuts to any place worth going  Come back soon!"
         redirect_to root_path
     end
 
