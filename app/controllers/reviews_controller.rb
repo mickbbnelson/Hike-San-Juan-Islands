@@ -11,18 +11,13 @@ class ReviewsController < ApplicationController
     end
     
     def new
-        if params[:hike_id] && @hike = Hike.find_by_id(params[:hike_id])
-            @review = Review.new(hike: @hike)
-        else
-            @review = Review.new
-        end
+        @hike = Hike.find_by_id(params[:hike_id])
+        @review = Review.new(hike: @hike)
     end
 
     def create
         @review = current_user.reviews.build(review_params)
-        if params[:hike_id] 
-            @hike = Hike.find_by_id(params[:hike_id])
-        end
+        @hike = Hike.find_by_id(params[:hike_id])
         if @review.save
             flash[:alert] = "Review has been posted"
             redirect_to hike_reviews_path(@hike)
