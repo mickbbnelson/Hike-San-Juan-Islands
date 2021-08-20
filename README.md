@@ -14,6 +14,10 @@ Seed the necessary data by running "rails db:seed"
 
     rails db:seed
 
+Install webpacker by running "rails webpacker:install"
+
+    rails webpacker:install
+
 Then type "rails s" into the terminal and type the following code into your web browser.
 
     localhost:3000
