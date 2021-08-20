@@ -34,9 +34,12 @@ class ReviewsController < ApplicationController
 
     def update
         assign_review_and_user
-        @review.update(review_params)
+        if @review.update(review_params)
         flash[:alert] = "Review has been updated"
         redirect_to user_path(@review.user_id)
+        else
+            render :edit
+        end
     end
 
     def destroy
