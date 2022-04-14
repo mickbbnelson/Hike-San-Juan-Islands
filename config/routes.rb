@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#omniauth'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   resources :users, only: [:show]
   
   resources :islands, only: [:index, :show] do
