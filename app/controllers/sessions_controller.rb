@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        byebug
         @user = User.find_or_create_by(uid: auth['uid']) do |user|
             user.name = auth['info']['name']
             user.email_address = auth['info']['email']

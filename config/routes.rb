@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new' 
   post 'sign_up', to: 'users#create'
 
-  get '/auth/facebook/callback', to: 'sessions#omniauth' 
-  post '/auth/facebook/callback', to: 'sessions#omniauth'
+  match '/auth/facebook/callback' => 'sessions#omniauth', :via => [:get, :post]
+  match "/auth/failure" => redirect("/login"), :via => [:get, :post]
+  # post '/auth/facebook/callback', to: 'sessions#omniauth'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
