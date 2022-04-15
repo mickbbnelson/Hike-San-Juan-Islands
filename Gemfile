@@ -25,9 +25,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem  'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'dotenv-rails'
+gem 'omniauth-facebook', '~> 4.0'
 
 
 # Use Active Storage variant
