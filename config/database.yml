@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: Hike_San_Juan_Islands_production
+  database: facebook_production
+  username: facebook
+  password: <%= ENV['FACEBOOK_DATABASE_PASSWORD'] %>
