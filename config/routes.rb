@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new' 
   post 'sign_up', to: 'users#create'
 
+  get 'auth/facebook/callback' => 'sessions#omniauth' 
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/auth/facebook/callback', to: 'sessions#omniauth'
+  # get '/auth/facebook/callback', to: 'sessions#omniauth' 
   get '/logout', to: 'sessions#destroy'
   resources :users, only: [:show]
   
