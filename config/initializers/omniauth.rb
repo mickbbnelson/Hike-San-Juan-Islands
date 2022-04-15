@@ -7,5 +7,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
           ca_file: '/usr/lib/ssl/certs/ca-certificates.crt',
           ca_path: "/private/etc/ssl/certs"
       }}
-    }
+    }}
   end 
