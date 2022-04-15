@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-rails_csrf_protection'
+gem  'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'dotenv-rails'
 
 
